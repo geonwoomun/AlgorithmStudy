@@ -33,7 +33,7 @@ def activitySelection(act) :
     return list(map(lambda a : a[0], result))   # lambda a : a[0]을 result의 하나하나의 원소를
     # a[0]을 리턴해서 list로 만든 다음에 return 한다.
 
-print(activitySelection(activity))
+print(activitySelection(activity)) # [1, 3, 6, 8]
 
 
 
