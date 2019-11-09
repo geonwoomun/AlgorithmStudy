@@ -1,4 +1,4 @@
-
+## 3번 문제는 풀지 못했다.....
 def solution(user_id, banned_id):
     answer = 1
     temp = []
