@@ -19,3 +19,5 @@ def solution(clothes):
         answer *= dic[key]
     answer -= 1
     return answer
+
+max()
