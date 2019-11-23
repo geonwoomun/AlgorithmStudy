@@ -13,7 +13,7 @@ sys.setrecursionlimit(100000)
 N = int(input())
 
 rain = [[]* N] * N # N * N 행렬을 만듦.
-visit = [[1 for i in range(N)] for i in range(N)] # N * N 행렬에 방문 안했으면 1 방문 했으면 0으로 만들거임.
+visit = [[1 for i in range(N)] for i in range(N)] # N * N 행렬에 비에 모두다 잠겼다고 가정. 1 잠김, 0 안 잠김.
 
 count = 0
 height = 0
@@ -30,7 +30,7 @@ def reset(N):    # 모두다 방문 안 한걸로 만들어주는 것.
 def DFS(i, j, height): # DFS 할거임.
     if(i < 0 or i >= N or j < 0 or j >= N):  # N * N 행렬을 벗어나는 녀석이면 return
         return
-    if(rain[i][j] > height) : # rain이 높이보다 크면 방문한걸로 바꿔줌.
+    if(rain[i][j] > height) : # rain이 높이보다 크면 안 잠긴 녀석을 바꿔줌.
         visit[i][j] = 0
     for m in range(4): # 위아래좌우를 확인 할 것임. dfs는 자식 우선이기 때문에. 점점 자식으로 가는
         a = i + cx[m]  # a를 현재 x + cx[0] , 1 2 3 순으로~
