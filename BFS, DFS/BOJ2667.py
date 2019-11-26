@@ -1,3 +1,5 @@
+# 백준 단지 번호 붙이기 
+# dfs로 풀어보기 
 import sys
 sys.setrecursionlimit(100000)
 
@@ -12,8 +14,6 @@ cy = [1,-1,0,0]
 count = 0
 
 def dfs(i, j):
-    # if(i<0 or i >=N or j < 0 or j >= N):
-    #     return
     home[i][j] = 0
     for k in range(4):
         x = i + cx[k]
