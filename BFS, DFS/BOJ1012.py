@@ -21,13 +21,11 @@ while(T > 0):
         baechu[b][a] = 1
 
     def dfs(i,j):
-        if(i<0 or i >= N or j <0 or j >= M): # 리스트 밖으로 나가면 끝냄
-            return
-        if(baechu[i][j] == 1): # 배추가 심어져있고 지렁이가 지나가지 않았으면
-            baechu[i][j] = 0
-            for k in range(4): # 상하좌우 하나씩.
-                a = i + cx[k]
-                b = j + cy[k]
+        baechu[i][j] = 0
+        for k in range(4): # 상하좌우 하나씩.
+            a = i + cx[k]
+            b = j + cy[k]
+            if(a >=0 and a < N and b >= 0 and b < M and baechu[a][b] == 1):
                 dfs(a,b)
     answer = 0
     for i in range(N):
@@ -37,3 +35,13 @@ while(T > 0):
                 answer +=1
     T -=1
     print(answer)
+
+# def dfs(i,j):
+#     if(i<0 or i >= N or j <0 or j >= M): # 리스트 밖으로 나가면 끝냄
+#         return
+#     if(baechu[i][j] == 1): # 배추가 심어져있고 지렁이가 지나가지 않았으면
+#         baechu[i][j] = 0
+#         for k in range(4): # 상하좌우 하나씩.
+#             a = i + cx[k]
+#             b = j + cy[k]
+#             dfs(a,b)
