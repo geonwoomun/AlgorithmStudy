@@ -7,8 +7,6 @@
 
 import sys
 sys.setrecursionlimit(1000000)
-s = 'sd'
-s.up
 T = int(input())
 
 while(T > 0):
