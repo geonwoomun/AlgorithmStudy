@@ -9,10 +9,9 @@ def bfs(start, tables, visited):
     q = deque()
     q.append((start, 0))
     numbers = defaultdict(lambda:0)
-
+    visited.add(start)
     while q:
         node, cnt = q.popleft()
-        visited.add(node)
         for neighbor in tables[node]: # tables[node]에 있는걸 하나씩 꺼낸다.
             if neighbor not in visited: # 방문한적이 없으면 넣고 있으면 안 넣음. 왜냐하면 방문했었으면 그때가 제일 짧은 거리니깐.
                 visited.add(neighbor) # 방문에 넣고
