@@ -14,7 +14,7 @@ def solution(s):
         if (s[index] == '{' or index == len(s) -1):
             if (len(element) > 0):
                 tuples.append(element)
-                arr = []
+                element = []
 
     tuples.sort(key = lambda x : len(x))
     for items in tuples:
