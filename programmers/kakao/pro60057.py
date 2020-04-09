@@ -1,7 +1,4 @@
 # 프로그래머스 문자열 압축
-import sys
-sys.setrecursionlimit(1000000)
-
 # text 문자열 index 어디부터 count 몇개씩 now 몇번 같은지
 def checkEqual(text, index, count, now): # 문자열에서 어디부터 몇개씩..
     if count + index>= len(text): # 마지막일경우
