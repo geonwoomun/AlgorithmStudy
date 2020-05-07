@@ -1,22 +1,36 @@
-var coinChange = function(coins, amount) {
-    let answer = 0;
-    coins.sort((a,b) => a-b);
-    for(let i = coins.length - 1; i >=0; i--) {
-        if(i === 0) {
-            if(amount % coins[i] === 0) {
-                answer += amount / coins[i]
-                return answer;
+var coinChange = function(coins, amount) {    
+    let dp = new Array(amount+1).fill(Infinity);
+    coins.sort((a,b)=>a-b); 
+    dp[0] = 0;
+    for(let i=1; i<=amount; i++){
+        for(let coin of coins){
+            if(coin<=i){
+                dp[i] = Math.min(dp[i], 1+dp[i-coin])
+            }else{
+                break;
             }
-            else {
-                return -1;
-            }
-        }
-        if(amount >= coins[i]) {
-            answer += parseInt(amount / coins[i]);
-            amount = amount % coins[i];
         }
     }
+    return dp[amount] < Infinity ? dp[amount] : -1;
 };
+
+var coinChange = function(coins, amount) {
+    let dp = new Array(amount + 1).fill(amount+1);
+    coins.sort((a,b) => a - b);
+    dp[0] = 0;
+    for(let i = 1; i <= amount; i++) {
+        for(let coin of coins) {
+            if(coin<=i) {
+                dp[i] = Math.min(dp[i], 1 + dp[i-coin]);
+            }
+            else {
+                break;
+            }
+        }
+    }
+    return dp[amount] < amount + 1 ? dp[amount] : -1 ;
+}
+
 let coins = [186,419,83,408];
 let amount = 6249;
 console.log(coinChange(coins, amount));
