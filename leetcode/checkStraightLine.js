@@ -14,13 +14,5 @@ var checkStraightLine = function(coordinates) {
     return true;
 };
 
-
-
-1 1 
-
-2 2
-
-
-
   
 
