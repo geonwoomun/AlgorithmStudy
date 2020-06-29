@@ -6,7 +6,7 @@ const findDuplicate = function (nums) {
   const numsMap = new Map();
 
   nums.forEach((num) => {
-    numsMap.set(num, numsMap.has(num) ? numsMap.get(num) + 1 : 1);
+    numsMap.set(num, 1 + (numsMap.get(num) || 0));
   });
 
   return [...numsMap.entries()].filter((entry) => entry[1] > 1)[0][0];
