@@ -1,5 +1,6 @@
 function solution(gems) {
   const result = new Set(gems);
+  console.log(result);
   const resultSize = result.size;
   const nowGems = new Map();
   nowGems.set(gems[0], 1);
