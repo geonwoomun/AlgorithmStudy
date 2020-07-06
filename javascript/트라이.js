@@ -37,7 +37,7 @@ const Trie = function () {
         word = word.substr(1);
       }
     }
-    return node.count > 1 ? true : false;
+    return node.count > 0 ? true : false;
   };
 
   this.isWord = function (word) {
@@ -79,10 +79,10 @@ myTrie.add('bat');
 myTrie.add('doll');
 myTrie.add('dark');
 myTrie.add('do');
-myTrie.add('dorm');
 myTrie.add('sense');
-console.log(myTrie.isWord('doll'));
-console.log(myTrie.isWord('dor'));
-console.log(myTrie.isSubWord('do'));
-console.log(myTrie.isSubWord('zzz'));
+console.log('doll', myTrie.isWord('doll'));
+console.log('dor', myTrie.isWord('dor'));
+console.log('do', myTrie.isSubWord('do'));
+console.log('doll', myTrie.isSubWord('doll'));
+console.log('zzz', myTrie.isSubWord('zzz'));
 console.log(myTrie.print());

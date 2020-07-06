@@ -51,7 +51,7 @@ const Trie = function () {
         word = word.substr(1);
       }
     }
-    return node.count > 1 ? true : false;
+    return node.count > 0 ? true : false;
   };
 
   this.isWord = function (word) {
@@ -68,7 +68,7 @@ const Trie = function () {
   };
 
   this.print = function () {
-    let words = new Array();
+    let words = [];
     let search = function (node = this.root, string) {
       if (node.keys.size !== 0) {
         for (let letter of node.keys.keys()) {
@@ -82,7 +82,7 @@ const Trie = function () {
         return;
       }
     };
-    search(this.root, new String());
+    search(this.root, '');
     return words.length > 0 ? words : null;
   };
 };
@@ -104,3 +104,32 @@ function solution(phone_book) {
 
 let phone_book = ['12', '123', '1235'];
 console.log(solution(phone_book));
+
+const a = [1, 2, 3, 4, 5];
+const b = [3, 4, 5, 6, 7];
+let result = [];
+let i = 0;
+let j = 0;
+while (i < a.length || j < b.length) {
+  if (i < a.length && j < b.length) {
+    if (a[i] > b[j]) {
+      result.push(b[j]);
+      j++;
+    } else if (a[i] < b[j]) {
+      result.push(a[i]);
+      i++;
+    } else {
+      result.push(a[i]);
+      i++;
+      j++;
+    }
+  } else {
+    if (i < a.length) {
+      result = result.concat(a.slice(i));
+    } else {
+      result = result.concat(b.slice(j));
+    }
+    break;
+  }
+}
+console.log(result);
