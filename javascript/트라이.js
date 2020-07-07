@@ -85,4 +85,5 @@ console.log('dor', myTrie.isWord('dor'));
 console.log('do', myTrie.isSubWord('do'));
 console.log('doll', myTrie.isSubWord('doll'));
 console.log('zzz', myTrie.isSubWord('zzz'));
+console.log('ol', myTrie.isSubWord('ol'));
 console.log(myTrie.print());
